@@ -1,3 +1,8 @@
+# 0.2.6
+
+* add redis "`expire`" command
+* update "`hgetall`" to return pipelined results when used in a pipeline
+
 # 0.2.5
 
 enable pool stats for all Jedis instances

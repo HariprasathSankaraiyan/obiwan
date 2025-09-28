@@ -4,11 +4,9 @@
             [tag.core :as t]
             [clojure.pprint :refer [pprint]]))
 
-;; TODO: taking tools.build for a spin
-
 (defonce project
   (let [lib        'com.tolitius/obiwan
-        version    "0.2.5"
+        version    "0.2.6"
         target-dir "target"]
     {:lib lib
      :description "redis clojure client based on jedis"
@@ -18,7 +16,13 @@
      :class-dir (str target-dir "/" "classes")
      :jar-file (format "%s/%s-%s.jar"
                        target-dir (name lib) version)
-     :basis (b/create-basis {:project "deps.edn"})}))
+     :basis (b/create-basis {:project "deps.edn"})
+     :pom-data [[:licenses
+                 [:license
+                  [:name "Eclipse Public License 1.0"]
+                  [:url "https://opensource.org/license/epl-1-0/"]
+                  [:distribution "repo"]]]]
+     }))
 
 (defn clean
   "delete the build target directory"

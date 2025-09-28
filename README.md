@@ -783,7 +783,7 @@ as well as a path to redis server and redis modules.
 
 # license
 
-Copyright © 2022 tolitius
+Copyright © 2025 tolitius
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

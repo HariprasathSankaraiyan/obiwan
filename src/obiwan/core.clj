@@ -205,14 +205,14 @@
        (into [])))
 
 (defn hgetall [^UnifiedJedis redis h]
-      "Takes a `UnifiedJedis` Redis client instance (`redis`) and a hash key (`h`).
-       - If the call is part of a pipeline, returns the `Response` object directly.
-       - Otherwise, returns a clojure map containing all field-value pairs in the hash"
+      "takes a `UnifiedJedis` redis client instance (`redis`) and a hash key (`h`).
+       - if the call is part of a pipeline, returns the `Response` object directly.
+       - otherwise, returns a clojure map containing all field-value pairs in the hash"
       (let [result (.hgetAll redis h)]
            (if (instance? Response result)
-             ;; For pipeline calls, return the Response object directly
+             ;; for pipeline calls, return the response object directly
              result
-             ;; For regular calls, convert to map
+             ;; for regular calls, convert to map
              (into {} result))))
 
 (defn hdel [^UnifiedJedis redis h vs]
@@ -359,6 +359,6 @@
          (recur cursor (sscan redis s cursor params)))))))
 
 (defn expire [^UnifiedJedis redis k ttl]
-      "Sets a timeout on key 'k' for 'ttl' seconds.
-       After the timeout has expired, the key will be automatically  deleted"
+      "sets a timeout on key 'k' for 'ttl' seconds.
+       after the timeout has expired, the key will be automatically  deleted"
       (.expire redis k ttl))
